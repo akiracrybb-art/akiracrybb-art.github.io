@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Akira | Portfolio</title>
-<meta name="description" content="Portfolio of Akira aka Aki — digital art, graphite, ink, and acrylic markers on black.">
+<meta name="description" content="Portfolio of Akira aka Aki - digital art, graphite, ink, and acrylic markers on black.">
 <style>
 :root{
   --bg:#08080a; --card:#101013; --text:#f4f0e8; --muted:#a8a29e;
@@ -12,7 +12,7 @@
   --accent:#ff3b5c; --line:#1f1f23; --radius:14px;
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);
+body{margin:0;background:linear-gradient(90deg,#040405 0%,#08080a 45%,#101014 100%);background-attachment:fixed;color:var(--text);
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.65}
 h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:500;letter-spacing:.02em;line-height:1.2}
 a{color:var(--text);text-underline-offset:3px}
@@ -76,6 +76,20 @@ dialog#lightbox{position:relative;background:#0a0a0c;color:var(--text);border:1p
 dialog#lightbox::backdrop{background:rgba(0,0,0,.8)}
 dialog#lightbox img{max-width:100%;max-height:64vh;width:auto;height:auto;object-fit:contain;display:block;border-radius:8px;cursor:zoom-in;margin:auto}
 dialog#lightbox img.zoomed{width:170%;max-width:none;max-height:none;cursor:zoom-out}
+.craft{background:rgba(255,210,63,.08);border:1px solid var(--yellow);border-radius:10px;padding:10px 14px}
+.steps{display:grid;gap:10px;padding-left:22px;margin:12px 0 0}
+.steps li::marker{color:var(--accent);font-weight:700}
+/* viewer: fixed anchor, stable arrows, no page jump */
+dialog#lightbox{position:fixed;inset:0;margin:auto;max-width:90vw;max-height:85vh;border:1px solid var(--line);background:#0a0a0c;border-radius:12px;padding:16px;box-shadow:0 20px 50px rgba(0,0,0,.8)}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);z-index:100;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+#lightbox-prev{left:24px}
+#lightbox-next{right:24px}
+.lb-row{justify-content:center;text-align:center}
+.discord-card{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#0c0c0e;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:12px;flex-wrap:wrap}
+.discord-info{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem}
+.discord-icon{color:#5865F2;flex:none}
+.copy-btn{display:flex;align-items:center;gap:8px;font:inherit;font-weight:700;background:var(--text);color:#000;border:0;border-radius:8px;padding:9px 16px;cursor:pointer}
+.copy-btn.copied{background:var(--green);color:#04120a}
 .lb-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px}
 .lb-nav{font:inherit;font-size:1.2rem;background:#1a1a1e;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px 16px;cursor:pointer}
 .lb-nav:hover{background:#2a2a30}
@@ -98,29 +112,38 @@ dialog#lightbox .close{margin-top:10px;width:100%;font:inherit;background:var(--
 </header>
 <main id="main">
 <div id="top" class="hero" aria-labelledby="hero-h">
-<p class="eyebrow">Portfolio — Digital · Graphite · Ink</p>
+<p class="eyebrow">Portfolio - Digital · Graphite · Ink</p>
 <h1 id="hero-h">Akira</h1>
-<p>Akira — also known as Aki, Alma, or Casper. Black background, colorful work — browse by medium below. More pieces coming soon.</p>
+<p>Akira (also known as Aki, Alma, or Casper) is an illustrator and character artist specializing in vibrant digital illustrations, detailed graphite, ink, and acrylic markers. Commissions are currently open for avatars, original characters, and custom artwork.</p>
 <hr class="rule">
 </div>
 
 <section class="card" id="about" aria-labelledby="about-h">
 <h2 id="about-h">About</h2>
-<p class="muted">Hi, I'm <strong style="color:var(--text)">Akira</strong> — also known as <strong style="color:var(--text)">Aki</strong>, <strong style="color:var(--text)">Alma</strong>, or <strong style="color:var(--text)">Casper</strong>.</p>
-<p>I do this for the love of the game — I love art in all its forms. My goal is to share art and the feelings it captures with as many people as I possibly can.</p>
+<p class="muted">Hi, I'm <strong style="color:var(--text)">Akira</strong> - also known as <strong style="color:var(--text)">Aki</strong>, <strong style="color:var(--text)">Alma</strong>, or <strong style="color:var(--text)">Casper</strong>.</p>
+<p>I do this for the love of the game - I love art in all its forms. My goal is to share art and the feelings it captures with as many people as I possibly can.</p>
 <p class="muted">I work in digital art and traditional graphite, plus ink and acrylic markers.</p>
+<p class="craft"><strong>100% human-drawn art</strong> - from physical sketchbooks to digital brushstrokes. No AI generators, ever.</p>
+<p class="muted">Digital: iPad with ibisPaint and Procreate. Traditional: Toga mechanical pencils on paper.</p>
 </section>
 
 <section class="card" id="commissions" aria-labelledby="comm-h">
 <h2 id="comm-h">Commissions <span class="badge">Open</span></h2>
 <p class="muted">Status: open. Orders via Discord only: <strong style="color:var(--text)">akiracrybb</strong>.</p>
 <ul class="comm-list">
-<li><strong>Profile pictures (PFP)</strong> — <span class="muted">icons and avatars</span></li>
-<li><strong>OC artworks</strong> — <span class="muted">your original characters</span></li>
-<li><strong>Full arts</strong> — <span class="muted">complete illustrations</span></li>
-<li><strong>Merged characters</strong> — <span class="muted">and/or crossovers</span></li>
-<li><strong>Chibis</strong> — <span class="muted">cute mini style</span></li>
+<li><strong>Profile pictures (PFP)</strong> - <span class="muted">icons and avatars</span></li>
+<li><strong>OC artworks</strong> - <span class="muted">your original characters</span></li>
+<li><strong>Full arts</strong> - <span class="muted">complete illustrations</span></li>
+<li><strong>Merged characters</strong> - <span class="muted">and/or crossovers</span></li>
+<li><strong>Chibis</strong> - <span class="muted">cute mini style</span></li>
 </ul>
+<h3 class="medium" style="--m:var(--green)" id="how-it-works">How commissions work</h3>
+<ol class="steps">
+<li><strong>Details first</strong> - <span class="muted">you send info and details about the drawing: references, ideas, and medium.</span></li>
+<li><strong>Half upfront</strong> - <span class="muted">half the payment before I start, the rest after it is completed.</span></li>
+<li><strong>Updates and free changes</strong> - <span class="muted">I send progress updates while drawing. Ask for changes during the work or even after it is finished.</span></li>
+<li><strong>Final delivery</strong> - <span class="muted">once the rest is paid, the full-resolution artwork is yours.</span></li>
+</ol>
 <h3 class="medium" style="--m:var(--blue)" id="pricing">Pricing chart</h3>
 <p class="muted">€5/hour · PFPs &amp; chibis €5 (1h or less) / flat €10 (over 2h). Click to zoom. <a href="assets/pricing.png">Full PNG</a>.</p>
 <article class="work"><img src="assets/pricing.webp" alt="Pricing chart by Akira: 5 euros per hour, profile pictures and chibis 5 euros if 1 hour or less, flat 10 euros if over 2 hours" loading="lazy" width="1200" height="1500"><div class="body"><h3>Pricing</h3><p>EUR with USD/GBP estimates</p></div></article>
@@ -130,9 +153,9 @@ dialog#lightbox .close{margin-top:10px;width:100%;font:inherit;background:var(--
 <h2 id="feat-h">Favorites <span class="star" aria-hidden="true">★</span></h2>
 <p class="muted">My personal favorites.</p>
 <div class="grid">
-<article class="work featured"><img src="assets/work-13.webp" alt="Misery - Ink artwork by Akira, personal favorite" loading="lazy" width="800" height="600"><div class="body"><h3>Misery ★</h3><p>Ink — favorite</p></div></article>
-<article class="work featured"><img src="assets/work-06.webp" alt="Goat - Acrylic Markers artwork by Akira, personal favorite" loading="lazy" width="800" height="600"><div class="body"><h3>Goat ★</h3><p>Acrylic Markers — favorite</p></div></article>
-<article class="work featured"><img src="assets/work-01.webp" alt="The Fool - Graphite and Coloured Pencils artwork by Akira, personal favorite" loading="lazy" width="800" height="600"><div class="body"><h3>The Fool ★</h3><p>Graphite and Coloured Pencils — favorite</p></div></article>
+<article class="work featured"><img src="assets/work-13.webp" alt="Misery - Ink artwork by Akira, personal favorite" loading="lazy" width="800" height="600"><div class="body"><h3>Misery ★</h3><p>Ink - favorite</p></div></article>
+<article class="work featured"><img src="assets/work-06.webp" alt="Goat - Acrylic Markers artwork by Akira, personal favorite" loading="lazy" width="800" height="600"><div class="body"><h3>Goat ★</h3><p>Acrylic Markers - favorite</p></div></article>
+<article class="work featured"><img src="assets/work-01.webp" alt="The Fool - Graphite and Coloured Pencils artwork by Akira, personal favorite" loading="lazy" width="800" height="600"><div class="body"><h3>The Fool ★</h3><p>Graphite and Coloured Pencils - favorite</p></div></article>
 </div>
 </section>
 
@@ -155,10 +178,10 @@ dialog#lightbox .close{margin-top:10px;width:100%;font:inherit;background:var(--
 <article class="work"><img src="assets/work-11.webp" alt="Ichigo - Digital Manga Recolour artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Ichigo</h3><p>Digital Manga Recolour</p></div></article>
 <article class="work"><img src="assets/work-12.webp" alt="Lucario - Digital Full Art artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Lucario</h3><p>Digital Full Art</p></div></article>
 <article class="work"><img src="assets/work-14.webp" alt="Montenegrin Spiderman - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Montenegrin Spiderman</h3><p>Digital</p></div></article>
-<article class="work"><img src="assets/work-15.webp" alt="OC commission character - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>OC commission — character</h3><p>Digital</p></div></article>
+<article class="work"><img src="assets/work-15.webp" alt="OC commission character - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>OC commission - character</h3><p>Digital</p></div></article>
 <article class="work"><img src="assets/work-16.webp" alt="OC commission PFP - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>OC commission PFP</h3><p>Digital</p></div></article>
-<article class="work"><img src="assets/work-17.webp" alt="OC Clean Sketch - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>OC — Clean Sketch</h3><p>Digital</p></div></article>
-<article class="work"><img src="assets/work-18.webp" alt="OC Render - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>OC — Render</h3><p>Digital</p></div></article>
+<article class="work"><img src="assets/work-17.webp" alt="OC Clean Sketch - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>OC - Clean Sketch</h3><p>Digital</p></div></article>
+<article class="work"><img src="assets/work-18.webp" alt="OC Render - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>OC - Render</h3><p>Digital</p></div></article>
 <article class="work"><img src="assets/work-20.webp" alt="Pokemon - Digital Full Art artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Pokemon</h3><p>Digital Full Art</p></div></article>
 <article class="work"><img src="assets/work-21.webp" alt="Remlin - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Remlin</h3><p>Digital</p></div></article>
 </div>
@@ -197,21 +220,28 @@ dialog#lightbox .close{margin-top:10px;width:100%;font:inherit;background:var(--
 <h2 id="proc-h">Process</h2>
 <p class="muted">Sketch → final: Goat in graphite, then reworked in acrylic markers.</p>
 <div class="process-grid">
-<article class="work"><img src="assets/work-07.webp" alt="Goat graphite sketch by Akira, before" loading="lazy" width="800" height="600"><div class="body"><h3>1 — Sketch</h3><p>Goat · Graphite</p></div></article>
-<article class="work"><img src="assets/work-06.webp" alt="Goat acrylic markers final by Akira, after" loading="lazy" width="800" height="600"><div class="body"><h3>2 — Final</h3><p>Goat · Acrylic Markers</p></div></article>
+<article class="work"><img src="assets/work-07.webp" alt="Goat graphite sketch by Akira, before" loading="lazy" width="800" height="600"><div class="body"><h3>1 - Sketch</h3><p>Goat · Graphite</p></div></article>
+<article class="work"><img src="assets/work-06.webp" alt="Goat acrylic markers final by Akira, after" loading="lazy" width="800" height="600"><div class="body"><h3>2 - Final</h3><p>Goat · Acrylic Markers</p></div></article>
 </div>
 </section>
 
 <section class="card" id="contact" aria-labelledby="contact-h">
 <h2 id="contact-h">Socials</h2>
-<ul class="socials">
-<li><strong>Discord</strong> <span>akiracrybb</span></li>
-<li><strong>GitHub</strong> <span><a href="https://github.com/akiracrybb-art">akiracrybb-art</a></span></li>
-</ul>
+<p class="muted">Fastest way to reach me for commissions:</p>
+<div class="discord-card">
+<div class="discord-info">
+<svg class="discord-icon" viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.292a.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+<span class="discord-handle" id="discord-username">akiracrybb</span>
+</div>
+<button type="button" class="copy-btn" id="copy-discord" aria-label="Copy Discord username">
+<svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+<span class="copy-label">Copy</span>
+</button>
+</div>
 </section>
 </main>
 <footer>
-<p>© <span id="year">2026</span> Akira · Black background, colorful accents</p>
+<p>© <span id="year">2026</span> Akira · All Rights Reserved · Handcrafted Art and Commissions</p>
 </footer>
 <dialog id="lightbox" aria-label="Artwork viewer. Use left and right arrows to browse.">
 <button class="lb-x" type="button" id="lightbox-close" aria-label="Close viewer">×</button>
@@ -249,15 +279,20 @@ const dlgCount = document.getElementById('lightbox-count');
 let current = 0;
 function show(i) {
   current = (i + gallery.length) % gallery.length;
+  dlgCount.textContent = (current + 1) + ' / ' + gallery.length + ' · …';
+  dlgImg.onload = () => {
+    dlgCount.textContent = (current + 1) + ' / ' + gallery.length + ' · ' + dlgImg.naturalWidth + ' × ' + dlgImg.naturalHeight + 'px · Click image to zoom';
+  };
   dlgImg.src = gallery[current].src;
   dlgImg.alt = gallery[current].alt;
   dlgImg.classList.remove('zoomed');
-  dlgCount.textContent = (current + 1) + ' / ' + gallery.length;
 }
+function lockScroll(on) { document.body.style.overflow = on ? 'hidden' : ''; }
 function openAt(img) {
   const key = img.getAttribute('src');
   show(gallery.findIndex(g => g.getAttribute('src') === key));
   if (typeof dlg.showModal === 'function') dlg.showModal();
+  lockScroll(true);
 }
 thumbs.forEach(img => {
   img.addEventListener('click', () => openAt(img));
@@ -265,6 +300,7 @@ thumbs.forEach(img => {
 document.getElementById('lightbox-prev').addEventListener('click', e => { e.stopPropagation(); show(current - 1); });
 document.getElementById('lightbox-next').addEventListener('click', e => { e.stopPropagation(); show(current + 1); });
 document.getElementById('lightbox-close').addEventListener('click', () => dlg.close());
+dlg.addEventListener('close', () => lockScroll(false));
 dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
 // click the big image toggles extra zoom; arrows/keys keep working
 dlgImg.addEventListener('click', e => { e.stopPropagation(); dlgImg.classList.toggle('zoomed'); });
@@ -274,6 +310,34 @@ document.addEventListener('keydown', e => {
   else if (e.key === 'ArrowRight') show(current + 1);
   else if (e.key === 'Escape') dlg.close();
 });
+// Discord copy button with fallback
+const copyBtn = document.getElementById('copy-discord');
+if (copyBtn) {
+  copyBtn.addEventListener('click', async () => {
+    const handle = document.getElementById('discord-username').textContent.trim();
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(handle);
+      ok = true;
+    } catch (err) {
+      const ta = document.createElement('textarea');
+      ta.value = handle;
+      document.body.appendChild(ta);
+      ta.select();
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+    }
+    const label = copyBtn.querySelector('.copy-label');
+    if (ok) {
+      copyBtn.classList.add('copied');
+      label.textContent = 'Copied! ✓';
+      setTimeout(() => { copyBtn.classList.remove('copied'); label.textContent = 'Copy'; }, 2000);
+    } else {
+      label.textContent = 'Copy failed';
+      setTimeout(() => { label.textContent = 'Copy'; }, 2000);
+    }
+  });
+}
 </script>
 </body>
 </html>
