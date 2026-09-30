@@ -4,51 +4,58 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Akira | Portfolio</title>
-<meta name="description" content="Portfolio of Akira — works, about, and socials. Black and red minimal elegant theme.">
+<meta name="description" content="Portfolio of Akira aka Aki — digital art, graphite, ink, and acrylic markers on black.">
 <style>
 :root{
   --bg:#08080a; --card:#101013; --text:#f4f0e8; --muted:#a8a29e;
-  --accent:#d90429; --accent-soft:rgba(217,4,41,.12); --line:#1f1f23; --radius:14px;
+  --red:#ff3b5c; --orange:#ff8a3d; --yellow:#ffd23f; --green:#3ddc84; --purple:#a06bff; --blue:#4cc9f0;
+  --accent:#ff3b5c; --line:#1f1f23; --radius:14px;
 }
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.65}
 h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:500;letter-spacing:.02em;line-height:1.2}
 a{color:var(--text);text-underline-offset:3px}
-a:hover{color:var(--accent)}
 .skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;color:#000;padding:8px 12px;z-index:99}
 header{position:sticky;top:0;z-index:10;background:rgba(8,8,10,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav{max-width:760px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;gap:12px}
+nav{max-width:860px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;gap:12px}
 .brand{font-family:Georgia,serif;font-size:1.25rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
-.brand span{color:var(--accent)}
+.brand span{background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow),var(--green),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
 nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
 nav ul a{text-decoration:none;font-size:.95rem;color:var(--muted)}
 nav ul a:hover{color:var(--text)}
-main{max-width:760px;margin:auto;padding:28px 18px 10px}
+main{max-width:860px;margin:auto;padding:28px 18px 10px}
 .hero{padding:56px 0 28px;text-align:left}
-.eyebrow{color:var(--accent);letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;margin:0 0 10px}
+.eyebrow{background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;margin:0 0 10px;font-weight:700}
 .hero h1{font-size:clamp(2.2rem,6vw,3.4rem);margin:.1em 0}
-.hero p{color:var(--muted);max-width:42ch}
-.rule{height:1px;background:linear-gradient(90deg,var(--accent),transparent);margin:28px 0;border:0}
+.hero p{color:var(--muted);max-width:52ch}
+.rule{height:3px;background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple));margin:28px 0;border:0;border-radius:99px}
 section.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin:18px 0}
 section.card h2{margin:0 0 6px;font-size:1.5rem}
-section.card h2::after{content:"";display:block;width:36px;height:2px;background:var(--accent);margin-top:8px}
+section.card h2::after{content:"";display:block;width:56px;height:3px;background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow),var(--green),var(--purple));margin-top:8px;border-radius:99px}
 .muted{color:var(--muted)}
+.medium{display:flex;align-items:center;gap:10px;margin:30px 0 4px;font-size:1.25rem}
+.medium::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--m,#fff);box-shadow:0 0 12px var(--m,#fff)}
+.medium-digital{--m:var(--purple)}
+.medium-graphite{--m:var(--yellow)}
+.medium-ink{--m:var(--red)}
+.medium-markers{--m:var(--green)}
+.medium .count{font-family:system-ui,sans-serif;font-size:.8rem;color:var(--muted);border:1px solid var(--line);padding:2px 10px;border-radius:99px}
 .grid{display:grid;gap:14px;margin-top:14px}
 @media(min-width:620px){.grid{grid-template-columns:1fr 1fr}}
+.group-digital .work{border-top:2px solid var(--purple)}
+.group-graphite .work{border-top:2px solid var(--yellow)}
+.group-ink .work{border-top:2px solid var(--red)}
+.group-markers .work{border-top:2px solid var(--green)}
 .work{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#0c0c0e}
-.work .thumb{aspect-ratio:16/9;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem;border-bottom:1px solid var(--line)}
 .work .body{padding:14px}
 .work h3{margin:0 0 6px;font-size:1.1rem}
 .work p{margin:0;color:var(--muted);font-size:.95rem}
-.work img{width:100%;height:100%;object-fit:cover;display:block}
+.work img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block;background:#000}
 .socials{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:10px}
 .socials li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:10px 2px;flex-wrap:wrap}
 .socials strong{font-weight:600}
-.btn{display:inline-block;margin-top:16px;background:var(--accent);color:#fff;text-decoration:none;padding:11px 18px;border-radius:999px}
-.btn:hover{background:#ef233c;color:#fff}
-code{background:#1a1a1e;padding:2px 6px;border-radius:6px}
-footer{max-width:760px;margin:auto;padding:28px 18px 40px;color:var(--muted);font-size:.9rem;text-align:center}
+footer{max-width:860px;margin:auto;padding:28px 18px 40px;color:var(--muted);font-size:.9rem;text-align:center}
 </style>
 </head>
 <body>
@@ -65,111 +72,59 @@ footer{max-width:760px;margin:auto;padding:28px 18px 40px;color:var(--muted);fon
 </header>
 <main id="main">
 <div id="top" class="hero" aria-labelledby="hero-h">
-<p class="eyebrow">Portfolio</p>
+<p class="eyebrow">Portfolio — Digital · Graphite · Ink</p>
 <h1 id="hero-h">Akira</h1>
-<p>Elegant minimal work in black &amp; red. Creator — more pieces coming soon.</p>
+<p>Also known as Aki. Black background, colorful work — browse by medium below. More pieces coming soon.</p>
 <hr class="rule">
 </div>
 
 <section class="card" id="about" aria-labelledby="about-h">
 <h2 id="about-h">About</h2>
 <p class="muted">Hi, I'm <strong style="color:var(--text)">Akira</strong>, also known as <strong style="color:var(--text)">Aki</strong>.</p>
-<p><!-- EDIT YOUR BIO HERE: replace this line with 1-2 sentences about what you make. -->I make digital art and traditional graphite work. The site theme is black &amp; red minimal — my pieces keep their own colors.</p>
+<p>I do this for the love of the game — I love art in all its forms. My goal is to share art and the feelings it captures with as many people as I possibly can.</p>
+<p class="muted">I work in digital art and traditional graphite, plus ink and acrylic markers.</p>
 </section>
 
 <section class="card" id="works" aria-labelledby="works-h">
-<h2 id="works-h">Selected works</h2>
-<p class="muted">Digital art + traditional graphite. Send your images and I'll add them here. 21 works live - optimized .webp, <code>work-2.webp</code>, etc.</p>
-<div class="grid">
-<article class="work">
-<img src="assets/work-01.webp" alt="The Fool - Graphite and Coloured Pencils artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>The Fool</h3><p>Graphite and Coloured Pencils</p></div>
-</article>
-<article class="work">
-<img src="assets/work-02.webp" alt="Akira DMCBB - Ink artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Akira DMCBB</h3><p>Ink</p></div>
-</article>
-<article class="work">
-<img src="assets/work-03.webp" alt="Angel - Graphite artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Angel</h3><p>Graphite</p></div>
-</article>
-<article class="work">
-<img src="assets/work-04.webp" alt="Band name PFP - Digital artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Band name PFP</h3><p>Digital</p></div>
-</article>
-<article class="work">
-<img src="assets/work-05.webp" alt="Dragon - Graphite artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Dragon</h3><p>Graphite</p></div>
-</article>
-<article class="work">
-<img src="assets/work-06.webp" alt="Goat - Acrylic Markers artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Goat</h3><p>Acrylic Markers</p></div>
-</article>
-<article class="work">
-<img src="assets/work-07.webp" alt="Goat - Graphite artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Goat</h3><p>Graphite</p></div>
-</article>
-<article class="work">
-<img src="assets/work-08.webp" alt="Guita - Digital artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Guita</h3><p>Digital</p></div>
-</article>
-<article class="work">
-<img src="assets/work-09.webp" alt="Hobbie - Acrylic Markers artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Hobbie</h3><p>Acrylic Markers</p></div>
-</article>
-<article class="work">
-<img src="assets/work-10.webp" alt="Huntress - Graphite artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Huntress</h3><p>Graphite</p></div>
-</article>
-<article class="work">
-<img src="assets/work-11.webp" alt="Ichigo - Digital Manga Recolour artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Ichigo</h3><p>Digital Manga Recolour</p></div>
-</article>
-<article class="work">
-<img src="assets/work-12.webp" alt="Lucario - Digital Full Art artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Lucario</h3><p>Digital Full Art</p></div>
-</article>
-<article class="work">
-<img src="assets/work-13.webp" alt="Misery - Ink artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Misery</h3><p>Ink</p></div>
-</article>
-<article class="work">
-<img src="assets/work-14.webp" alt="Montenegrin Spiderman - Digital artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Montenegrin Spiderman</h3><p>Digital</p></div>
-</article>
-<article class="work">
-<img src="assets/work-15.webp" alt="OC commission - character - Digital artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>OC commission - character</h3><p>Digital</p></div>
-</article>
-<article class="work">
-<img src="assets/work-16.webp" alt="OC commission PFP - Digital artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>OC commission PFP</h3><p>Digital</p></div>
-</article>
-<article class="work">
-<img src="assets/work-17.webp" alt="OC - Clean Sketch - Digital artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>OC - Clean Sketch</h3><p>Digital</p></div>
-</article>
-<article class="work">
-<img src="assets/work-18.webp" alt="OC - Render - Digital artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>OC - Render</h3><p>Digital</p></div>
-</article>
-<article class="work">
-<img src="assets/work-19.webp" alt="Owl and Dragon - Ink artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Owl and Dragon</h3><p>Ink</p></div>
-</article>
-<article class="work">
-<img src="assets/work-20.webp" alt="Pokemon - Digital Full Art artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Pokemon</h3><p>Digital Full Art</p></div>
-</article>
-<article class="work">
-<img src="assets/work-21.webp" alt="Remlin - Digital artwork by Akira" loading="lazy" width="800" height="600">
-<div class="body"><h3>Remlin</h3><p>Digital</p></div>
-</article>
+<h2 id="works-h">Works by medium</h2>
+<p class="muted">21 works, grouped by medium. All images are fast-loading <code>.webp</code>.</p>
+
+<h3 class="medium medium-digital" id="digital">Digital <span class="count">11</span></h3>
+<div class="grid group-digital">
+<article class="work"><img src="assets/work-04.webp" alt="Band name PFP - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Band name PFP</h3><p>Digital</p></div></article>
+<article class="work"><img src="assets/work-08.webp" alt="Guita - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Guita</h3><p>Digital</p></div></article>
+<article class="work"><img src="assets/work-11.webp" alt="Ichigo - Digital Manga Recolour artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Ichigo</h3><p>Digital Manga Recolour</p></div></article>
+<article class="work"><img src="assets/work-12.webp" alt="Lucario - Digital Full Art artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Lucario</h3><p>Digital Full Art</p></div></article>
+<article class="work"><img src="assets/work-14.webp" alt="Montenegrin Spiderman - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Montenegrin Spiderman</h3><p>Digital</p></div></article>
+<article class="work"><img src="assets/work-15.webp" alt="OC commission character - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>OC commission — character</h3><p>Digital</p></div></article>
+<article class="work"><img src="assets/work-16.webp" alt="OC commission PFP - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>OC commission PFP</h3><p>Digital</p></div></article>
+<article class="work"><img src="assets/work-17.webp" alt="OC Clean Sketch - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>OC — Clean Sketch</h3><p>Digital</p></div></article>
+<article class="work"><img src="assets/work-18.webp" alt="OC Render - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>OC — Render</h3><p>Digital</p></div></article>
+<article class="work"><img src="assets/work-20.webp" alt="Pokemon - Digital Full Art artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Pokemon</h3><p>Digital Full Art</p></div></article>
+<article class="work"><img src="assets/work-21.webp" alt="Remlin - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Remlin</h3><p>Digital</p></div></article>
 </div>
-<!--
-WHEN YOU HAVE IMAGES, replace a .thumb div with:
-<img src="assets/work-1.webp" alt="Describe your work" loading="lazy" width="640" height="360">
--->
+
+<h3 class="medium medium-graphite" id="graphite">Graphite &amp; Pencils <span class="count">5</span></h3>
+<div class="grid group-graphite">
+<article class="work"><img src="assets/work-01.webp" alt="The Fool - Graphite and Coloured Pencils artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>The Fool</h3><p>Graphite and Coloured Pencils</p></div></article>
+<article class="work"><img src="assets/work-03.webp" alt="Angel - Graphite artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Angel</h3><p>Graphite</p></div></article>
+<article class="work"><img src="assets/work-05.webp" alt="Dragon - Graphite artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Dragon</h3><p>Graphite</p></div></article>
+<article class="work"><img src="assets/work-07.webp" alt="Goat - Graphite artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Goat</h3><p>Graphite</p></div></article>
+<article class="work"><img src="assets/work-10.webp" alt="Huntress - Graphite artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Huntress</h3><p>Graphite</p></div></article>
+</div>
+
+<h3 class="medium medium-ink" id="ink">Ink <span class="count">3</span></h3>
+<div class="grid group-ink">
+<article class="work"><img src="assets/work-02.webp" alt="Akira DMCBB - Ink artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Akira DMCBB</h3><p>Ink</p></div></article>
+<article class="work"><img src="assets/work-13.webp" alt="Misery - Ink artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Misery</h3><p>Ink</p></div></article>
+<article class="work"><img src="assets/work-19.webp" alt="Owl and Dragon - Ink artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Owl and Dragon</h3><p>Ink</p></div></article>
+</div>
+
+<h3 class="medium medium-markers" id="markers">Acrylic Markers <span class="count">2</span></h3>
+<div class="grid group-markers">
+<article class="work"><img src="assets/work-06.webp" alt="Goat - Acrylic Markers artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Goat</h3><p>Acrylic Markers</p></div></article>
+<article class="work"><img src="assets/work-09.webp" alt="Hobbie - Acrylic Markers artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Hobbie</h3><p>Acrylic Markers</p></div></article>
+</div>
 </section>
 
 <section class="card" id="contact" aria-labelledby="contact-h">
@@ -182,10 +137,9 @@ WHEN YOU HAVE IMAGES, replace a .thumb div with:
 </section>
 </main>
 <footer>
-<p>© <span id="year">2026</span> Akira · Black &amp; red minimal theme</p>
+<p>© <span id="year">2026</span> Akira · Black background, colorful accents</p>
 </footer>
 <script>
-// Minimal JS: footer year only
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
