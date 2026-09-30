@@ -70,6 +70,14 @@ footer{max-width:860px;margin:auto;padding:28px 18px 40px;color:var(--muted);fon
 dialog#lightbox{background:#0a0a0c;color:var(--text);border:1px solid var(--line);border-radius:12px;max-width:min(92vw,900px);padding:12px}
 dialog#lightbox::backdrop{background:rgba(0,0,0,.8)}
 dialog#lightbox img{max-width:100%;height:auto;display:block;border-radius:8px}
+dialog#lightbox{background:#0a0a0c;color:var(--text);border:1px solid var(--line);border-radius:12px;max-width:min(92vw,900px);max-height:90vh;overflow:auto;padding:12px}
+dialog#lightbox::backdrop{background:rgba(0,0,0,.8)}
+dialog#lightbox img{max-width:100%;height:auto;display:block;border-radius:8px;cursor:zoom-in;margin:auto}
+dialog#lightbox img.zoomed{width:170%;max-width:none;cursor:zoom-out}
+.lb-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px}
+.lb-nav{font:inherit;font-size:1.2rem;background:#1a1a1e;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px 16px;cursor:pointer}
+.lb-nav:hover{background:#2a2a30}
+#lightbox-count{font-size:.9rem;color:var(--muted)}
 dialog#lightbox .close{margin-top:10px;width:100%;font:inherit;background:var(--text);color:#000;border:0;border-radius:8px;padding:10px;cursor:pointer}
 </style>
 </head>
@@ -202,8 +210,13 @@ dialog#lightbox .close{margin-top:10px;width:100%;font:inherit;background:var(--
 <footer>
 <p>© <span id="year">2026</span> Akira · Black background, colorful accents</p>
 </footer>
-<dialog id="lightbox" aria-label="Artwork zoom viewer">
+<dialog id="lightbox" aria-label="Artwork viewer. Use left and right arrows to browse.">
 <img id="lightbox-img" src="" alt="">
+<div class="lb-row">
+<button class="lb-nav" type="button" id="lightbox-prev" aria-label="Previous image">←</button>
+<span id="lightbox-count" aria-live="polite"></span>
+<button class="lb-nav" type="button" id="lightbox-next" aria-label="Next image">→</button>
+</div>
 <button class="close" type="button" id="lightbox-close">Close</button>
 </dialog>
 <script>
@@ -219,18 +232,45 @@ buttons.forEach(btn => {
     groups.forEach(g => { g.hidden = !(f === 'all' || g.dataset.medium === f); });
   });
 });
-// Click to zoom
+// Click to zoom + arrow browsing (deduped by image file)
+const thumbs = Array.from(document.querySelectorAll('.work img'));
+const gallery = [];
+const seen = new Set();
+thumbs.forEach(img => {
+  const key = img.getAttribute('src');
+  if (!seen.has(key)) { seen.add(key); gallery.push(img); }
+});
 const dlg = document.getElementById('lightbox');
 const dlgImg = document.getElementById('lightbox-img');
-document.querySelectorAll('.work img').forEach(img => {
-  img.addEventListener('click', () => {
-    dlgImg.src = img.src;
-    dlgImg.alt = img.alt;
-    if (typeof dlg.showModal === 'function') dlg.showModal();
-  });
+const dlgCount = document.getElementById('lightbox-count');
+let current = 0;
+function show(i) {
+  current = (i + gallery.length) % gallery.length;
+  dlgImg.src = gallery[current].src;
+  dlgImg.alt = gallery[current].alt;
+  dlgImg.classList.remove('zoomed');
+  dlgCount.textContent = (current + 1) + ' / ' + gallery.length;
+}
+function openAt(img) {
+  const key = img.getAttribute('src');
+  show(gallery.findIndex(g => g.getAttribute('src') === key));
+  if (typeof dlg.showModal === 'function') dlg.showModal();
+}
+thumbs.forEach(img => {
+  img.addEventListener('click', () => openAt(img));
 });
+document.getElementById('lightbox-prev').addEventListener('click', e => { e.stopPropagation(); show(current - 1); });
+document.getElementById('lightbox-next').addEventListener('click', e => { e.stopPropagation(); show(current + 1); });
 document.getElementById('lightbox-close').addEventListener('click', () => dlg.close());
 dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+// click the big image toggles extra zoom; arrows/keys keep working
+dlgImg.addEventListener('click', e => { e.stopPropagation(); dlgImg.classList.toggle('zoomed'); });
+document.addEventListener('keydown', e => {
+  if (!dlg.open) return;
+  if (e.key === 'ArrowLeft') show(current - 1);
+  else if (e.key === 'ArrowRight') show(current + 1);
+  else if (e.key === 'Escape') dlg.close();
+});
 </script>
 </body>
 </html>
