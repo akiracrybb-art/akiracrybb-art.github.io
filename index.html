@@ -56,6 +56,21 @@ section.card h2::after{content:"";display:block;width:56px;height:3px;background
 .socials li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:10px 2px;flex-wrap:wrap}
 .socials strong{font-weight:600}
 footer{max-width:860px;margin:auto;padding:28px 18px 40px;color:var(--muted);font-size:.9rem;text-align:center}
+.badge{display:inline-block;font-family:system-ui,sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:99px;background:rgba(61,220,132,.15);color:var(--green);border:1px solid var(--green)}
+.comm-list{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:8px}
+.comm-list li{border-bottom:1px solid var(--line);padding:8px 2px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
+.filters button{font:inherit;font-size:.85rem;background:#0c0c0e;color:var(--text);border:1px solid var(--line);border-radius:99px;padding:7px 14px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--text);color:#000;border-color:var(--text)}
+.featured{outline:2px solid var(--yellow);outline-offset:2px}
+.star{color:var(--yellow)}
+.process-grid{display:grid;gap:14px;margin-top:14px}
+@media(min-width:620px){.process-grid{grid-template-columns:1fr 1fr}}
+.work img{cursor:zoom-in}
+dialog#lightbox{background:#0a0a0c;color:var(--text);border:1px solid var(--line);border-radius:12px;max-width:min(92vw,900px);padding:12px}
+dialog#lightbox::backdrop{background:rgba(0,0,0,.8)}
+dialog#lightbox img{max-width:100%;height:auto;display:block;border-radius:8px}
+dialog#lightbox .close{margin-top:10px;width:100%;font:inherit;background:var(--text);color:#000;border:0;border-radius:8px;padding:10px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -65,6 +80,7 @@ footer{max-width:860px;margin:auto;padding:28px 18px 40px;color:var(--muted);fon
 <a class="brand" href="#top">Akira<span>.</span></a>
 <ul>
 <li><a href="#about">About</a></li>
+<li><a href="#commissions">Commissions</a></li>
 <li><a href="#works">Works</a></li>
 <li><a href="#contact">Socials</a></li>
 </ul>
@@ -74,7 +90,7 @@ footer{max-width:860px;margin:auto;padding:28px 18px 40px;color:var(--muted);fon
 <div id="top" class="hero" aria-labelledby="hero-h">
 <p class="eyebrow">Portfolio — Digital · Graphite · Ink</p>
 <h1 id="hero-h">Akira</h1>
-<p>Also known as Aki. Black background, colorful work — browse by medium below. More pieces coming soon.</p>
+<p>Amakira — also known as Aki, Alma, or Casper. Black background, colorful work — browse by medium below. More pieces coming soon.</p>
 <hr class="rule">
 </div>
 
@@ -85,10 +101,40 @@ footer{max-width:860px;margin:auto;padding:28px 18px 40px;color:var(--muted);fon
 <p class="muted">I work in digital art and traditional graphite, plus ink and acrylic markers.</p>
 </section>
 
+<section class="card" id="commissions" aria-labelledby="comm-h">
+<h2 id="comm-h">Commissions <span class="badge">Open</span></h2>
+<p class="muted">Status: open. Message me on Discord (<strong style="color:var(--text)">akiracrybb</strong>) or TikTok (<a href="https://www.tiktok.com/@akiracrybb.mp3">@akiracrybb.mp3</a>) to order.</p>
+<ul class="comm-list">
+<li><strong>Profile pictures (PFP)</strong> — <span class="muted">icons and avatars</span></li>
+<li><strong>OC artworks</strong> — <span class="muted">your original characters</span></li>
+<li><strong>Full arts</strong> — <span class="muted">complete illustrations</span></li>
+<li><strong>Backgrounds</strong> — <span class="muted">scenes and settings</span></li>
+<li><strong>Merged characters</strong> — <span class="muted">and/or crossovers</span></li>
+<li><strong>Chibis</strong> — <span class="muted">cute mini style</span></li>
+</ul>
+</section>
+
+<section class="card" id="featured" aria-labelledby="feat-h">
+<h2 id="feat-h">Favorites <span class="star" aria-hidden="true">★</span></h2>
+<p class="muted">My personal favorites.</p>
+<div class="grid">
+<article class="work featured"><img src="assets/work-13.webp" alt="Misery - Ink artwork by Akira, personal favorite" loading="lazy" width="800" height="600"><div class="body"><h3>Misery ★</h3><p>Ink — favorite</p></div></article>
+<article class="work featured"><img src="assets/work-06.webp" alt="Goat - Acrylic Markers artwork by Akira, personal favorite" loading="lazy" width="800" height="600"><div class="body"><h3>Goat ★</h3><p>Acrylic Markers — favorite</p></div></article>
+</div>
+</section>
+
 <section class="card" id="works" aria-labelledby="works-h">
 <h2 id="works-h">Works by medium</h2>
-<p class="muted">21 works, grouped by medium. All images are fast-loading <code>.webp</code>.</p>
+<p class="muted">21 works, grouped by medium. Click any image to zoom. All images are fast-loading <code>.webp</code>.</p>
+<div class="filters" role="group" aria-label="Filter works by medium">
+<button type="button" data-filter="all" aria-pressed="true">All</button>
+<button type="button" data-filter="digital" aria-pressed="false">Digital</button>
+<button type="button" data-filter="graphite" aria-pressed="false">Graphite</button>
+<button type="button" data-filter="ink" aria-pressed="false">Ink</button>
+<button type="button" data-filter="markers" aria-pressed="false">Markers</button>
+</div>
 
+<div class="medium-group" data-medium="digital">
 <h3 class="medium medium-digital" id="digital">Digital <span class="count">11</span></h3>
 <div class="grid group-digital">
 <article class="work"><img src="assets/work-04.webp" alt="Band name PFP - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Band name PFP</h3><p>Digital</p></div></article>
@@ -103,7 +149,9 @@ footer{max-width:860px;margin:auto;padding:28px 18px 40px;color:var(--muted);fon
 <article class="work"><img src="assets/work-20.webp" alt="Pokemon - Digital Full Art artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Pokemon</h3><p>Digital Full Art</p></div></article>
 <article class="work"><img src="assets/work-21.webp" alt="Remlin - Digital artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Remlin</h3><p>Digital</p></div></article>
 </div>
+</div>
 
+<div class="medium-group" data-medium="graphite">
 <h3 class="medium medium-graphite" id="graphite">Graphite &amp; Pencils <span class="count">5</span></h3>
 <div class="grid group-graphite">
 <article class="work"><img src="assets/work-01.webp" alt="The Fool - Graphite and Coloured Pencils artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>The Fool</h3><p>Graphite and Coloured Pencils</p></div></article>
@@ -112,18 +160,32 @@ footer{max-width:860px;margin:auto;padding:28px 18px 40px;color:var(--muted);fon
 <article class="work"><img src="assets/work-07.webp" alt="Goat - Graphite artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Goat</h3><p>Graphite</p></div></article>
 <article class="work"><img src="assets/work-10.webp" alt="Huntress - Graphite artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Huntress</h3><p>Graphite</p></div></article>
 </div>
+</div>
 
+<div class="medium-group" data-medium="ink">
 <h3 class="medium medium-ink" id="ink">Ink <span class="count">3</span></h3>
 <div class="grid group-ink">
 <article class="work"><img src="assets/work-02.webp" alt="Akira DMCBB - Ink artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Akira DMCBB</h3><p>Ink</p></div></article>
 <article class="work"><img src="assets/work-13.webp" alt="Misery - Ink artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Misery</h3><p>Ink</p></div></article>
 <article class="work"><img src="assets/work-19.webp" alt="Owl and Dragon - Ink artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Owl and Dragon</h3><p>Ink</p></div></article>
 </div>
+</div>
 
+<div class="medium-group" data-medium="markers">
 <h3 class="medium medium-markers" id="markers">Acrylic Markers <span class="count">2</span></h3>
 <div class="grid group-markers">
 <article class="work"><img src="assets/work-06.webp" alt="Goat - Acrylic Markers artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Goat</h3><p>Acrylic Markers</p></div></article>
 <article class="work"><img src="assets/work-09.webp" alt="Hobbie - Acrylic Markers artwork by Akira" loading="lazy" width="800" height="600"><div class="body"><h3>Hobbie</h3><p>Acrylic Markers</p></div></article>
+</div>
+</div>
+</section>
+
+<section class="card" id="process" aria-labelledby="proc-h">
+<h2 id="proc-h">Process</h2>
+<p class="muted">Sketch → final: Goat in graphite, then reworked in acrylic markers.</p>
+<div class="process-grid">
+<article class="work"><img src="assets/work-07.webp" alt="Goat graphite sketch by Akira, before" loading="lazy" width="800" height="600"><div class="body"><h3>1 — Sketch</h3><p>Goat · Graphite</p></div></article>
+<article class="work"><img src="assets/work-06.webp" alt="Goat acrylic markers final by Akira, after" loading="lazy" width="800" height="600"><div class="body"><h3>2 — Final</h3><p>Goat · Acrylic Markers</p></div></article>
 </div>
 </section>
 
@@ -139,8 +201,35 @@ footer{max-width:860px;margin:auto;padding:28px 18px 40px;color:var(--muted);fon
 <footer>
 <p>© <span id="year">2026</span> Akira · Black background, colorful accents</p>
 </footer>
+<dialog id="lightbox" aria-label="Artwork zoom viewer">
+<img id="lightbox-img" src="" alt="">
+<button class="close" type="button" id="lightbox-close">Close</button>
+</dialog>
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
+// Filter buttons
+const buttons = document.querySelectorAll('.filters button');
+const groups = document.querySelectorAll('.medium-group');
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    buttons.forEach(b => b.setAttribute('aria-pressed', 'false'));
+    btn.setAttribute('aria-pressed', 'true');
+    const f = btn.dataset.filter;
+    groups.forEach(g => { g.hidden = !(f === 'all' || g.dataset.medium === f); });
+  });
+});
+// Click to zoom
+const dlg = document.getElementById('lightbox');
+const dlgImg = document.getElementById('lightbox-img');
+document.querySelectorAll('.work img').forEach(img => {
+  img.addEventListener('click', () => {
+    dlgImg.src = img.src;
+    dlgImg.alt = img.alt;
+    if (typeof dlg.showModal === 'function') dlg.showModal();
+  });
+});
+document.getElementById('lightbox-close').addEventListener('click', () => dlg.close());
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
 </script>
 </body>
 </html>
