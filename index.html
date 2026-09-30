@@ -70,7 +70,9 @@ footer{max-width:860px;margin:auto;padding:28px 18px 40px;color:var(--muted);fon
 dialog#lightbox{background:#0a0a0c;color:var(--text);border:1px solid var(--line);border-radius:12px;max-width:min(92vw,900px);padding:12px}
 dialog#lightbox::backdrop{background:rgba(0,0,0,.8)}
 dialog#lightbox img{max-width:100%;height:auto;display:block;border-radius:8px}
-dialog#lightbox{background:#0a0a0c;color:var(--text);border:1px solid var(--line);border-radius:12px;max-width:min(92vw,900px);max-height:90vh;overflow:auto;padding:12px}
+dialog#lightbox{position:relative;background:#0a0a0c;color:var(--text);border:1px solid var(--line);border-radius:12px;max-width:min(92vw,900px);max-height:90vh;overflow:auto;padding:12px}
+.lb-x{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#1a1a1e;color:var(--text);font-size:1.2rem;line-height:1;cursor:pointer;z-index:2}
+.lb-x:hover{background:#2a2a30}
 dialog#lightbox::backdrop{background:rgba(0,0,0,.8)}
 dialog#lightbox img{max-width:100%;height:auto;display:block;border-radius:8px;cursor:zoom-in;margin:auto}
 dialog#lightbox img.zoomed{width:170%;max-width:none;cursor:zoom-out}
@@ -211,13 +213,13 @@ dialog#lightbox .close{margin-top:10px;width:100%;font:inherit;background:var(--
 <p>© <span id="year">2026</span> Akira · Black background, colorful accents</p>
 </footer>
 <dialog id="lightbox" aria-label="Artwork viewer. Use left and right arrows to browse.">
+<button class="lb-x" type="button" id="lightbox-close" aria-label="Close viewer">×</button>
 <img id="lightbox-img" src="" alt="">
 <div class="lb-row">
 <button class="lb-nav" type="button" id="lightbox-prev" aria-label="Previous image">←</button>
 <span id="lightbox-count" aria-live="polite"></span>
 <button class="lb-nav" type="button" id="lightbox-next" aria-label="Next image">→</button>
 </div>
-<button class="close" type="button" id="lightbox-close">Close</button>
 </dialog>
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
